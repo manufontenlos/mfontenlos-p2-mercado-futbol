@@ -1,0 +1,22 @@
+relationship AutoDetected_141e8618-3165-4094-bb6e-7239448c2ea6
+	fromColumn: FACT_PLAYER_SEASON.COMPETITION_ID
+	toColumn: DIM_COMPETITION.COMPETITION_ID
+
+relationship AutoDetected_8943f9bb-5865-477b-8e35-b8f4d2d9cacb
+	fromColumn: FACT_PLAYER_SEASON.SEASON
+	toColumn: DIM_SEASON.SEASON
+
+relationship AutoDetected_01b98851-d8d6-432f-b147-b060418c32ce
+	fromColumn: FACT_PLAYER_SEASON.PLAYER_ID
+	toColumn: DIM_PLAYER.PLAYER_ID
+
+relationship 05a0c38a-cb6b-4274-be17-9c80ee738f5c
+	fromColumn: FACT_PLAYER_SEASON.CLUB_ID
+	toColumn: DIM_CLUB.CLUB_ID
+
+relationship df0c7456-f8fd-4848-a356-91268110bfdb
+	isActive: false
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FACT_PLAYER_SEASON.MARKET_VALUE_AS_OF_DATE
+	toColumn: DIM_DATE.DATE_DAY
+

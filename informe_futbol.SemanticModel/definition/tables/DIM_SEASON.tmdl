@@ -1,0 +1,54 @@
+table DIM_SEASON
+	lineageTag: 16743fab-dde2-4835-9bb0-52b39951bc7d
+
+	column SEASON
+		dataType: double
+		lineageTag: 37062e62-3c3f-455b-b26a-8a5f543c052e
+		summarizeBy: none
+		sourceColumn: SEASON
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SEASON_LABEL
+		dataType: string
+		lineageTag: 0bfc6de9-8769-4f1d-8580-23aa64015c7e
+		summarizeBy: none
+		sourceColumn: SEASON_LABEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEASON_START_YEAR
+		dataType: double
+		lineageTag: d8968032-4eb1-4550-8a42-bf93714374c3
+		summarizeBy: none
+		sourceColumn: SEASON_START_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SEASON_END_YEAR
+		dataType: double
+		lineageTag: 808587d9-6c09-47be-8258-99689e1abd2e
+		summarizeBy: none
+		sourceColumn: SEASON_END_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_SEASON = m
+		mode: import
+		source =
+				let
+				    Origen = Snowflake.Databases("DOOHLLX-DU69027.snowflakecomputing.com","COMPUTE_WH",[Implementation="2.0"]),
+				    FOOTBALL_Database = Origen{[Name="FOOTBALL",Kind="Database"]}[Data],
+				    GOLD_Schema = FOOTBALL_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_SEASON_Table = GOLD_Schema{[Name="DIM_SEASON",Kind="Table"]}[Data]
+				in
+				    DIM_SEASON_Table
+
+	annotation PBI_ResultType = Table
+

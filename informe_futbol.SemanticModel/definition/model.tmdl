@@ -1,0 +1,24 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["DIM_CLUB","DIM_COMPETITION","DIM_DATE","DIM_PLAYER","DIM_SEASON","FACT_PLAYER_SEASON"]
+
+ref table DIM_CLUB
+ref table DIM_COMPETITION
+ref table DIM_DATE
+ref table DIM_PLAYER
+ref table DIM_SEASON
+ref table FACT_PLAYER_SEASON
+
+ref cultureInfo es-ES
+

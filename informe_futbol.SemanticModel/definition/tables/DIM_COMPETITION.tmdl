@@ -1,0 +1,100 @@
+table DIM_COMPETITION
+	lineageTag: 35f5feb9-211a-4bef-b738-502d17fcc9f8
+
+	column COMPETITION_ID
+		dataType: string
+		lineageTag: 73e8f508-eb70-4f2f-887e-cdfa680ed751
+		summarizeBy: none
+		sourceColumn: COMPETITION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPETITION_NAME
+		dataType: string
+		lineageTag: 01bee89c-f952-4003-a76a-e9e9f86a1cb8
+		summarizeBy: none
+		sourceColumn: COMPETITION_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPETITION_CODE
+		dataType: string
+		lineageTag: fb6a7dd4-f3aa-4557-9cb6-969206f93b93
+		summarizeBy: none
+		sourceColumn: COMPETITION_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPETITION_TYPE
+		dataType: string
+		lineageTag: 6d16b9ec-c667-418a-9d41-c2135705ee30
+		summarizeBy: none
+		sourceColumn: COMPETITION_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_TYPE
+		dataType: string
+		lineageTag: e516407f-c77f-4f7e-b5b3-516375d9ede1
+		summarizeBy: none
+		sourceColumn: SUB_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_ID
+		dataType: double
+		lineageTag: d21d4685-0317-4ab1-bdec-3b9120da14e4
+		summarizeBy: none
+		sourceColumn: COUNTRY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COUNTRY_NAME
+		dataType: string
+		lineageTag: 27533570-0110-470e-8632-8af53f94a0e5
+		summarizeBy: none
+		sourceColumn: COUNTRY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOMESTIC_LEAGUE_CODE
+		dataType: string
+		lineageTag: 73cbba84-7fd6-446a-852e-f4acf3e1eb53
+		summarizeBy: none
+		sourceColumn: DOMESTIC_LEAGUE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONFEDERATION
+		dataType: string
+		lineageTag: 6ac87f4f-324b-4a51-bf55-d3db60f140db
+		summarizeBy: none
+		sourceColumn: CONFEDERATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_CLUBS
+		dataType: double
+		lineageTag: 7b3f754c-c41a-40d0-9884-a573e5891b81
+		summarizeBy: none
+		sourceColumn: TOTAL_CLUBS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_COMPETITION = m
+		mode: import
+		source =
+				let
+				    Origen = Snowflake.Databases("DOOHLLX-DU69027.snowflakecomputing.com","COMPUTE_WH",[Implementation="2.0"]),
+				    FOOTBALL_Database = Origen{[Name="FOOTBALL",Kind="Database"]}[Data],
+				    GOLD_Schema = FOOTBALL_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_COMPETITION_Table = GOLD_Schema{[Name="DIM_COMPETITION",Kind="Table"]}[Data]
+				in
+				    DIM_COMPETITION_Table
+
+	annotation PBI_ResultType = Table
+

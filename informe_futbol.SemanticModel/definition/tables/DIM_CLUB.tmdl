@@ -1,0 +1,146 @@
+table DIM_CLUB
+	lineageTag: 5ec04d01-6587-41e1-b889-24a90ef6193f
+
+	column CLUB_ID
+		dataType: double
+		lineageTag: 5a2ca040-ff67-4f15-b429-34a64302f262
+		summarizeBy: count
+		sourceColumn: CLUB_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLUB_NAME
+		dataType: string
+		lineageTag: 1c455941-d85f-4113-9e41-c15005712bae
+		summarizeBy: none
+		sourceColumn: CLUB_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLUB_CODE
+		dataType: string
+		lineageTag: 6b306d2a-cdd9-49b6-bbd6-778d06c91eab
+		summarizeBy: none
+		sourceColumn: CLUB_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOMESTIC_COMPETITION_ID
+		dataType: string
+		lineageTag: 5243ec76-4d93-416d-bfbd-c7c7dd2005f0
+		summarizeBy: none
+		sourceColumn: DOMESTIC_COMPETITION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column STADIUM_NAME
+		dataType: string
+		lineageTag: 27ca4380-4685-4ea5-8e39-ca142f2b3d3f
+		summarizeBy: none
+		sourceColumn: STADIUM_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column STADIUM_SEATS
+		dataType: double
+		lineageTag: 4db234f6-8e45-47ac-9a25-2a2d8ec4ef46
+		summarizeBy: sum
+		sourceColumn: STADIUM_SEATS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SQUAD_SIZE
+		dataType: double
+		lineageTag: 0498e49e-003a-41a3-bb58-f59563c12387
+		summarizeBy: sum
+		sourceColumn: SQUAD_SIZE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVERAGE_AGE
+		dataType: double
+		lineageTag: bb1d03a6-e009-4a67-a4a1-f3d1e48ee392
+		summarizeBy: sum
+		sourceColumn: AVERAGE_AGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FOREIGNERS_NUMBER
+		dataType: double
+		lineageTag: 4f709880-2021-47dd-befb-2fce9123db59
+		summarizeBy: sum
+		sourceColumn: FOREIGNERS_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FOREIGNERS_PERCENTAGE
+		dataType: double
+		lineageTag: b804ba56-a2ea-4005-afd3-7a118ad25184
+		summarizeBy: sum
+		sourceColumn: FOREIGNERS_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NATIONAL_TEAM_PLAYERS
+		dataType: double
+		lineageTag: cdcc00bc-5bb6-40a3-90d6-2c29f051cf1b
+		summarizeBy: sum
+		sourceColumn: NATIONAL_TEAM_PLAYERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COACH_NAME
+		dataType: string
+		lineageTag: 46c122da-04bc-4ebe-8789-bf6f63128e5f
+		summarizeBy: none
+		sourceColumn: COACH_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_SEASON
+		dataType: double
+		lineageTag: 873f043a-290d-4afb-bb93-2062d29e3bd9
+		summarizeBy: sum
+		sourceColumn: LAST_SEASON
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NET_TRANSFER_RECORD_EUR
+		dataType: double
+		lineageTag: e188dccf-9f69-46fc-8e97-1c6687bcfd8c
+		summarizeBy: sum
+		sourceColumn: NET_TRANSFER_RECORD_EUR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_CLUB = m
+		mode: import
+		source =
+				let
+				    Origen = Snowflake.Databases("DOOHLLX-DU69027.snowflakecomputing.com","COMPUTE_WH",[Implementation="2.0"]),
+				    FOOTBALL_Database = Origen{[Name="FOOTBALL",Kind="Database"]}[Data],
+				    GOLD_Schema = FOOTBALL_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_CLUB_Table = GOLD_Schema{[Name="DIM_CLUB",Kind="Table"]}[Data]
+				in
+				    DIM_CLUB_Table
+
+	annotation PBI_ResultType = Table
+

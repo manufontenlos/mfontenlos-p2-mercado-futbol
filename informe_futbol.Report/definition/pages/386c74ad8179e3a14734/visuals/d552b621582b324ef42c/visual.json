@@ -1,0 +1,339 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d552b621582b324ef42c",
+  "position": {
+    "x": 20,
+    "y": 160,
+    "z": 0,
+    "height": 877,
+    "width": 1400,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PLAYER"
+                    }
+                  },
+                  "Property": "PLAYER_NAME"
+                }
+              },
+              "queryRef": "DIM_PLAYER.PLAYER_NAME",
+              "nativeQueryRef": "PLAYER_NAME"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PLAYER"
+                    }
+                  },
+                  "Property": "POSITION"
+                }
+              },
+              "queryRef": "DIM_PLAYER.POSITION",
+              "nativeQueryRef": "POSITION"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_CLUB"
+                    }
+                  },
+                  "Property": "CLUB_NAME"
+                }
+              },
+              "queryRef": "DIM_CLUB.CLUB_NAME",
+              "nativeQueryRef": "CLUB_NAME"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_COMPETITION"
+                    }
+                  },
+                  "Property": "COMPETITION_NAME"
+                }
+              },
+              "queryRef": "DIM_COMPETITION.COMPETITION_NAME",
+              "nativeQueryRef": "COMPETITION_NAME"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_SEASON"
+                    }
+                  },
+                  "Property": "SEASON_LABEL"
+                }
+              },
+              "queryRef": "DIM_SEASON.SEASON_LABEL",
+              "nativeQueryRef": "SEASON_LABEL"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_PLAYER_SEASON"
+                    }
+                  },
+                  "Property": "Goles"
+                }
+              },
+              "queryRef": "FACT_PLAYER_SEASON.Goles",
+              "nativeQueryRef": "Goles"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_PLAYER_SEASON"
+                    }
+                  },
+                  "Property": "Asistencias"
+                }
+              },
+              "queryRef": "FACT_PLAYER_SEASON.Asistencias",
+              "nativeQueryRef": "Asistencias"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_PLAYER_SEASON"
+                    }
+                  },
+                  "Property": "Minutos Jugados"
+                }
+              },
+              "queryRef": "FACT_PLAYER_SEASON.Minutos Jugados",
+              "nativeQueryRef": "Minutos Jugados"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_PLAYER_SEASON"
+                    }
+                  },
+                  "Property": "Performance Score"
+                }
+              },
+              "queryRef": "FACT_PLAYER_SEASON.Performance Score",
+              "nativeQueryRef": "Performance Score"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_PLAYER_SEASON"
+                    }
+                  },
+                  "Property": "Valor Medio de Mercado"
+                }
+              },
+              "queryRef": "FACT_PLAYER_SEASON.Valor Medio de Mercado",
+              "nativeQueryRef": "Valor Medio de Mercado"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_PLAYER"
+                  }
+                },
+                "Property": "PLAYER_NAME"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detalle jugador-temporada-club-competición'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ff49a0f0193bf93ebd12",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PLAYER"
+              }
+            },
+            "Property": "PLAYER_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c6bc2353c926f9909fff",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_PLAYER"
+              }
+            },
+            "Property": "POSITION"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "68dfbb2212b4081d247f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_CLUB"
+              }
+            },
+            "Property": "CLUB_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5a4ab2a7108f52f02bcd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_COMPETITION"
+              }
+            },
+            "Property": "COMPETITION_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "31cab906b32823aeb2e5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_SEASON"
+              }
+            },
+            "Property": "SEASON_LABEL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cbbb65e8ee9142367810",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_PLAYER_SEASON"
+              }
+            },
+            "Property": "Goles"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b0a3657f21ebd41ac6aa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_PLAYER_SEASON"
+              }
+            },
+            "Property": "Asistencias"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6f2388309437944ee41c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_PLAYER_SEASON"
+              }
+            },
+            "Property": "Minutos Jugados"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d73bd00abb9f0b8834cc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_PLAYER_SEASON"
+              }
+            },
+            "Property": "Performance Score"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4d2c928324d5f85cddf8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_PLAYER_SEASON"
+              }
+            },
+            "Property": "Valor Medio de Mercado"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

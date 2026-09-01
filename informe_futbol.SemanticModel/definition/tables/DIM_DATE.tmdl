@@ -1,0 +1,113 @@
+table DIM_DATE
+	lineageTag: 04ab4269-815a-43c4-8ca3-dbafc420752e
+
+	column DATE_DAY
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4cd0b1a9-b6a2-4c76-b332-15481d9a5767
+		summarizeBy: none
+		sourceColumn: DATE_DAY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YEAR
+		dataType: double
+		lineageTag: de3ace01-b225-4e2c-9a06-a917c32eea84
+		summarizeBy: sum
+		sourceColumn: YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUARTER
+		dataType: double
+		lineageTag: 91c8c501-60a2-4caa-a9bc-4237cb4c470d
+		summarizeBy: sum
+		sourceColumn: QUARTER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH
+		dataType: double
+		lineageTag: 3bbd4347-da61-470c-851a-0e6af7108d33
+		summarizeBy: sum
+		sourceColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MONTH_NAME
+		dataType: string
+		lineageTag: 03f8a024-392a-422a-bdee-a4381aabcec1
+		summarizeBy: none
+		sourceColumn: MONTH_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY
+		dataType: double
+		lineageTag: 18e68d1f-6ac7-405f-b0c9-aecda9244acb
+		summarizeBy: sum
+		sourceColumn: DAY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAY_OF_WEEK
+		dataType: double
+		lineageTag: 50c1af9d-4a02-4fc4-ac19-02f06e0cd9d7
+		summarizeBy: sum
+		sourceColumn: DAY_OF_WEEK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DAY_NAME
+		dataType: string
+		lineageTag: 8ed0ba29-3a21-4fbf-8ce6-150bb817dfbe
+		summarizeBy: none
+		sourceColumn: DAY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column WEEK_OF_YEAR
+		dataType: double
+		lineageTag: 1e2e041a-e10e-4238-a39f-6b682a563b22
+		summarizeBy: sum
+		sourceColumn: WEEK_OF_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SEASON
+		dataType: double
+		lineageTag: ffa11b83-5a3d-4911-9fae-3059c39cb877
+		summarizeBy: sum
+		sourceColumn: SEASON
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_DATE = m
+		mode: import
+		source =
+				let
+				    Origen = Snowflake.Databases("DOOHLLX-DU69027.snowflakecomputing.com","COMPUTE_WH",[Implementation="2.0"]),
+				    FOOTBALL_Database = Origen{[Name="FOOTBALL",Kind="Database"]}[Data],
+				    GOLD_Schema = FOOTBALL_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_DATE_Table = GOLD_Schema{[Name="DIM_DATE",Kind="Table"]}[Data]
+				in
+				    DIM_DATE_Table
+
+	annotation PBI_ResultType = Table
+

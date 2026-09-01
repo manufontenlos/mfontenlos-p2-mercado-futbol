@@ -1,0 +1,111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8f6ffed92bfca2c94d1e",
+  "position": {
+    "x": 970,
+    "y": 620,
+    "z": 7000,
+    "height": 440,
+    "width": 930,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PLAYER"
+                    }
+                  },
+                  "Property": "PLAYER_NAME"
+                }
+              },
+              "queryRef": "DIM_PLAYER.PLAYER_NAME",
+              "nativeQueryRef": "PLAYER_NAME",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_PLAYER"
+                    }
+                  },
+                  "Property": "POSITION"
+                }
+              },
+              "queryRef": "DIM_PLAYER.POSITION",
+              "nativeQueryRef": "POSITION"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_PLAYER_SEASON"
+                    }
+                  },
+                  "Property": "Valor Medio de Mercado"
+                }
+              },
+              "queryRef": "FACT_PLAYER_SEASON.Valor Medio de Mercado",
+              "nativeQueryRef": "Valor Medio de Mercado",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_PLAYER_SEASON"
+                    }
+                  },
+                  "Property": "Performance Score"
+                }
+              },
+              "queryRef": "FACT_PLAYER_SEASON.Performance Score",
+              "nativeQueryRef": "Performance Score"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Score vs. valor de mercado'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

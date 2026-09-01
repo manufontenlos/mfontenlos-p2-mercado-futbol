@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "informe_futbol"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "517a3bb6-ed0c-4307-a9b0-a5306e5283e0"
+  }
+}
